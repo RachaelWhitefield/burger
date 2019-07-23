@@ -1,0 +1,1 @@
+console.log("burgers.js is linked");
