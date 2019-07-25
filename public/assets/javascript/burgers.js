@@ -41,13 +41,21 @@ $(function() {
     $(".delete-burger").on("click", function(event) {
         var id = $(this).data("id");
 
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE"
-        }).then(
-            function() {
-                console.log("deleted burger", id);
-                location.reload();
-            }
-        );
+        $.ajax({
+            method: "DELETE",
+            url: `/api/burgers/${id}`
+        }).then(function() {
+            console.log(`Deleted burger with id ${id}`);
+            location.reload();
+        })
+
+    //     $.ajax("/api/burgers/" + id, {
+    //         type: "DELETE"
+    //     }).then(
+    //         function() {
+    //             console.log("deleted burger", id);
+    //             location.reload();
+    //         }
+    //     );
     });
 });
